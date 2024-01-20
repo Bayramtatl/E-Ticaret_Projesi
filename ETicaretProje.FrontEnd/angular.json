@@ -25,9 +25,28 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/all.min.css",
+              "src/assets/bootstrap/css/bootstrap.min.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/animate.css",
+              "src/assets/css/meanmenu.min.css",
+              "src/assets/css/main.css",
+              "src/assets/css/responsive.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/jquery-1.11.3.min.js",
+              "src/assets/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/jquery.countdown.js",
+              "src/assets/js/jquery.isotope-3.0.6.min.js",
+              "src/assets/js/waypoints.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.meanmenu.min.js",
+              "src/assets/js/sticker.js",
+              "src/assets/js/main.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
