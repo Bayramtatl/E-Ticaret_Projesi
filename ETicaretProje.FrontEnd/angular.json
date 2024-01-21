@@ -16,6 +16,11 @@
             "outputPath": "dist/eticaret-proje.frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            },
             "polyfills": [
               "zone.js"
             ],
@@ -25,15 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/css/all.min.css",
-              "src/assets/bootstrap/css/bootstrap.min.css",
-              "src/assets/css/owl.carousel.css",
-              "src/assets/css/magnific-popup.css",
-              "src/assets/css/animate.css",
-              "src/assets/css/meanmenu.min.css",
-              "src/assets/css/main.css",
-              "src/assets/css/responsive.css"
+              "src/styles.css"
             ],
             "scripts": [
               "src/assets/js/jquery-1.11.3.min.js",
@@ -45,7 +42,9 @@
               "src/assets/js/jquery.magnific-popup.min.js",
               "src/assets/js/jquery.meanmenu.min.js",
               "src/assets/js/sticker.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+              "src/assets/js/scripts.js",
+              "src/assets/js/datatables-simple-demo.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
