@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ETicaretProje.Business\ETicaretProje.Business.csproj" />
     <ProjectReference Include="..\ETicaretProje.Dal\ETicaretProje.Dal.csproj" />
   </ItemGroup>
 

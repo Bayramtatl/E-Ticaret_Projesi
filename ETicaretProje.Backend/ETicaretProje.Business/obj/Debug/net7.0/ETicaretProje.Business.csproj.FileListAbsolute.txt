@@ -1,0 +1,17 @@
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\ETicaretProje.Business.deps.json
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\ETicaretProje.Business.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\ETicaretProje.Business.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\ETicaretProje.Dal.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\EticaretProje.Domain.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\ETicaretProje.Dal.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\bin\Debug\net7.0\EticaretProje.Domain.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.csproj.AssemblyReference.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.AssemblyInfoInputs.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.AssemblyInfo.cs
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.csproj.CoreCompileInputs.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.csproj.CopyComplete
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\refint\ETicaretProje.Business.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ETicaretProje.Business.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Business\obj\Debug\net7.0\ref\ETicaretProje.Business.dll

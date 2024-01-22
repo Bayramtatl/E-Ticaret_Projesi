@@ -1,4 +1,6 @@
-﻿using EticaretProje.Domain.Entities;
+﻿using EticaretProje.Domain.Dtos;
+using EticaretProje.Domain.Entities;
+using EticaretProje.Domain.ResponseClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,6 @@ namespace ETicaretProje.Business.Abstract
 {
     public interface ICustomerRepository : IBaseRepository<Customer>
     {
+        public Task<ResponseObject<Customer>> Login(UserLoginDto model);
     }
 }

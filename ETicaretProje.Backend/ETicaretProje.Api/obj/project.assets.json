@@ -1067,6 +1067,20 @@
           }
         }
       },
+      "ETicaretProje.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ETicaretProje.Dal": "1.0.0",
+          "EticaretProje.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ETicaretProje.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ETicaretProje.Business.dll": {}
+        }
+      },
       "ETicaretProje.Dal/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -3082,6 +3096,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "ETicaretProje.Business/1.0.0": {
+      "type": "project",
+      "path": "../ETicaretProje.Business/ETicaretProje.Business.csproj",
+      "msbuildProject": "../ETicaretProje.Business/ETicaretProje.Business.csproj"
+    },
     "ETicaretProje.Dal/1.0.0": {
       "type": "project",
       "path": "../ETicaretProje.Dal/ETicaretProje.Dal.csproj",
@@ -3095,6 +3114,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "ETicaretProje.Business >= 1.0.0",
       "ETicaretProje.Dal >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.2",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -3127,6 +3147,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\tatlb\\Desktop\\Angulat Bootcamp\\ETicaretProje\\ETicaretProje.Backend\\ETicaretProje.Business\\ETicaretProje.Business.csproj": {
+              "projectPath": "C:\\Users\\tatlb\\Desktop\\Angulat Bootcamp\\ETicaretProje\\ETicaretProje.Backend\\ETicaretProje.Business\\ETicaretProje.Business.csproj"
+            },
             "C:\\Users\\tatlb\\Desktop\\Angulat Bootcamp\\ETicaretProje\\ETicaretProje.Backend\\ETicaretProje.Dal\\ETicaretProje.Dal.csproj": {
               "projectPath": "C:\\Users\\tatlb\\Desktop\\Angulat Bootcamp\\ETicaretProje\\ETicaretProje.Backend\\ETicaretProje.Dal\\ETicaretProje.Dal.csproj"
             }

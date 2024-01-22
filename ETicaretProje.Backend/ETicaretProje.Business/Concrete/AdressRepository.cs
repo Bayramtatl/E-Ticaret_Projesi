@@ -2,6 +2,7 @@
 using EticaretProje.Domain.ResponseClasses;
 using ETicaretProje.Business.Abstract;
 using ETicaretProje.Dal.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -101,6 +102,28 @@ namespace ETicaretProje.Business.Concrete
                 return new ResponseObject<Adress>()
                 {
                     Message = "İşlem Başarılı, kayıtlar listelendi",
+                    ResultObject = Adress,
+                    Success = true
+                };
+            }
+            else
+            {
+                return new ResponseObject<Adress>()
+                {
+                    Message = "Sistemde ilgili kayıt bulunmamaktadır",
+                    ResultObject = null,
+                    Success = true
+                };
+            }
+        }
+        public async Task<ResponseObject<Adress>> GetByCustomerId(int customerid)
+        {
+            var Adress = _dataContext.Adresses.FirstOrDefault(i => i.CustomerId == customerid);
+            if (Adress != null)
+            {
+                return new ResponseObject<Adress>()
+                {
+                    Message = "İşlem Başarılı, kayıt listelendi",
                     ResultObject = Adress,
                     Success = true
                 };

@@ -1,4 +1,6 @@
-﻿using EticaretProje.Domain.Entities;
+﻿using EticaretProje.Domain.Dtos;
+using EticaretProje.Domain.Entities;
+using EticaretProje.Domain.ResponseClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +11,6 @@ namespace ETicaretProje.Business.Abstract
 {
     public interface IAdminRepository : IBaseRepository<Admin>
     {
+        public Task<ResponseObject<Admin>> Login(UserLoginDto model);
     }
 }

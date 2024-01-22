@@ -1,14 +1,8 @@
-﻿using EticaretProje.Domain.Entities;
+﻿using EticaretProje.Domain.Dtos;
+using EticaretProje.Domain.Entities;
 using EticaretProje.Domain.ResponseClasses;
 using ETicaretProje.Business.Abstract;
 using ETicaretProje.Dal.Context;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ETicaretProje.Business.Concrete
 {
@@ -167,6 +161,40 @@ namespace ETicaretProje.Business.Concrete
                 {
                     Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = model,
+                    Success = false
+                };
+            }
+        }
+        public async Task<ResponseObject<Admin>> Login(UserLoginDto model)
+        {
+            try
+            {
+                var admin = _dataContext.Admins.FirstOrDefault(i => i.Email == model.Email && i.Password == model.Password);
+                if (admin != null)
+                {
+                    return new ResponseObject<Admin>()
+                    {
+                        Message = "Başarıyla giriş yaptınız",
+                        ResultObject = admin,
+                        Success = true
+                    };
+                }
+                else
+                {
+                    return new ResponseObject<Admin>()
+                    {
+                        Message = "Kullanıcı adı veya şifre hatalı",
+                        ResultObject = null,
+                        Success = false
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                return new ResponseObject<Admin>()
+                {
+                    Message = "Giriş başarısız",
+                    ResultObject = null,
                     Success = false
                 };
             }

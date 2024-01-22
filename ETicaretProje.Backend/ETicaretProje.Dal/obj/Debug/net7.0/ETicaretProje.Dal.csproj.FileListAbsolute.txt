@@ -1,0 +1,17 @@
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\ETicaretProje.Dal.deps.json
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\ETicaretProje.Dal.runtimeconfig.json
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\ETicaretProje.Dal.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\ETicaretProje.Dal.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\EticaretProje.Domain.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\bin\Debug\net7.0\EticaretProje.Domain.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.csproj.AssemblyReference.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.AssemblyInfoInputs.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.AssemblyInfo.cs
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.csproj.CoreCompileInputs.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.csproj.CopyComplete
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\refint\ETicaretProje.Dal.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.pdb
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ETicaretProje.Dal.genruntimeconfig.cache
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Dal\obj\Debug\net7.0\ref\ETicaretProje.Dal.dll
