@@ -9,9 +9,13 @@ namespace EticaretProje.Domain.Entities
 {
     public class Order : BaseObject
     {
+        public Order()
+        {
+            CartProducts= new List<CartProduct>();
+        }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public ICollection<CartProduct> CartProducts { get; set; }
+        public ICollection<CartProduct>? CartProducts { get; set; }
         public DateTime CreatedDate { get; set; }
 
     }

@@ -9,9 +9,13 @@ namespace EticaretProje.Domain.Entities
 {
     public class Category : BaseObject
     {
+        public Category()
+        {
+            Products= new List<Product>();
+        }
         public string CategoryName { get; set; }
         public string Description { get; set; }
-        public ICollection<Product> Products { get; set; }
+        public ICollection<Product>? Products { get; set; }
 
     }
 }

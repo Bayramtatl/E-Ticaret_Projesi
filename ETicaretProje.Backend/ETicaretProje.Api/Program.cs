@@ -1,3 +1,5 @@
+using ETicaretProje.Business.Abstract;
+using ETicaretProje.Business.Concrete;
 using ETicaretProje.Dal.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<IAdressRepository, AdressRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddDbContext<DataContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSwaggerGen();

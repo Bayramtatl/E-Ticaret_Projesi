@@ -13,8 +13,7 @@ namespace EticaretProje.Domain.Abstract
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
 
     }
 }

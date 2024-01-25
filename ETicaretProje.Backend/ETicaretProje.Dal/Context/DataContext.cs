@@ -11,6 +11,7 @@ namespace ETicaretProje.Dal.Context
 {
     public class DataContext : DbContext
     {
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Adress> Adresses { get; set; }
         public DbSet<Cart> Carts { get; set; }
@@ -22,6 +23,16 @@ namespace ETicaretProje.Dal.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Customer>()
+       .HasOne(c => c.Adress)
+       .WithOne(a => a.Customer)
+       .HasForeignKey<Adress>(c => c.CustomerId);
+
+            modelBuilder.Entity<Customer>()
+        .HasOne(c => c.Cart)
+        .WithOne(a => a.Customer)
+        .HasForeignKey<Cart>(c => c.CustomerId);
+
             modelBuilder.Entity<Admin>().HasData(
         new Admin
         {
@@ -30,14 +41,14 @@ namespace ETicaretProje.Dal.Context
             Password = "123",
             Name = "Bayram",
             Surname = "Tatlı",
-            isActive = true,
+            IsActive = true,
         });
             modelBuilder.Entity<Cart>().HasData(
         new Cart
         {
             Id = 1,
-            CustomerId= 1,
-            isActive = true,           
+            CustomerId = 1,
+            IsActive = true,
         });
 
             modelBuilder.Entity<Customer>().HasData(
@@ -48,8 +59,19 @@ namespace ETicaretProje.Dal.Context
             Surname = "Alaz",
             Email = "k@k.com",
             Password = "123",
-            isActive = true,
+            IsActive = true,
             PhoneNumber = "534321",
+            AdressId = 1,
+        });
+            modelBuilder.Entity<Adress>().HasData(
+        new Adress
+        {
+        Id = 1,
+        City = "Bursa",
+        County = "Nilüfer",
+        Description = "beşevler",
+        CustomerId = 1,
+        IsActive = true,
         });
         }
     }

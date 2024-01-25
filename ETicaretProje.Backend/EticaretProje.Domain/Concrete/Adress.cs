@@ -13,6 +13,6 @@ namespace EticaretProje.Domain.Entities
         public string County { get; set; }
         public string City { get; set; }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
     }
 }

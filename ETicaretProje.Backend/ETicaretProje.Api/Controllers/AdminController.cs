@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ETicaretProje.Api.Controllers
 {
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AdminController : ControllerBase
     {
@@ -32,6 +33,7 @@ namespace ETicaretProje.Api.Controllers
             if (result.Success) return Ok(result);
             else { return BadRequest(result); }
         }
+        [HttpPost]
         public async Task<IActionResult> Update(Admin admin)
         {
             var result = await _adminRepository.Update(admin);

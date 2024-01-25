@@ -9,7 +9,12 @@ namespace EticaretProje.Domain.Entities
 {
     public class Cart : BaseObject
     {
-        public ICollection<CartProduct> CartProducts { get; set; }
+        public Cart()
+        {
+            CartProducts= new List<CartProduct>();
+        }
+        public ICollection<CartProduct>? CartProducts { get; set; }
         public int CustomerId { get; set; }
+        public Customer? Customer { get; set; }
     }
 }

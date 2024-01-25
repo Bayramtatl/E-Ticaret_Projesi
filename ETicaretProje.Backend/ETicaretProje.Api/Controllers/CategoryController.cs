@@ -7,6 +7,7 @@ using ETicaretProje.Business.Concrete;
 
 namespace ETicaretProje.Api.Controllers
 {
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -25,6 +26,7 @@ namespace ETicaretProje.Api.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet]
         public async Task<IActionResult> Delete(int id) // product ile bağlantısı var dikkat
         {
             var result = await _categoryRepository.Delete(id);
@@ -58,6 +60,7 @@ namespace ETicaretProje.Api.Controllers
                 return NotFound(result);
             }
         }
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var result = await _categoryRepository.GetAll();
@@ -74,6 +77,7 @@ namespace ETicaretProje.Api.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost]
         public async Task<IActionResult> Update(Category category)
         {
             var result = await _categoryRepository.Update(category);

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ETicaretProje.Api.Controllers
 {
+    [Route("api/[controller]/[action]")]
     public class CustomerController : Controller
     {
         private ICustomerRepository _customerRepository;

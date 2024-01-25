@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ETicaretProje.Api.Controllers
 {
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class OrderController : ControllerBase
     {

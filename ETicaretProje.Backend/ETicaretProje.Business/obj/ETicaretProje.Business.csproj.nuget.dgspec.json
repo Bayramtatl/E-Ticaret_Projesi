@@ -116,6 +116,10 @@
               "target": "Package",
               "version": "[7.0.15, )"
             },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.15, )"

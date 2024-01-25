@@ -75,3 +75,8 @@ C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETic
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\obj\Debug\net7.0\ETicaretProje.Api.pdb
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\obj\Debug\net7.0\ETicaretProje.Api.genruntimeconfig.cache
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\obj\Debug\net7.0\ref\ETicaretProje.Api.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Humanizer.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\System.CodeDom.dll

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ETicaretProje.Api.Controllers
 {
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductController : ControllerBase
     {
@@ -38,7 +39,7 @@ namespace ETicaretProje.Api.Controllers
                 return BadRequest(result);
             }
         }
-
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var result = await _productRepository.Delete(id);
