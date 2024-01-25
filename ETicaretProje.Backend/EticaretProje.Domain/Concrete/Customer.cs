@@ -20,7 +20,5 @@ namespace EticaretProje.Domain.Entities
         public int CartId { get; set; }
         public Cart Cart { get; set; }
         public ICollection<Order>? Orders { get; set; }
-
-
     }
 }
