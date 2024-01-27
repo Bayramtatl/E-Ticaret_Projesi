@@ -7,7 +7,8 @@
 @import 'assets/css/meanmenu.min.css';
 @import 'assets/css/main.css';
 @import 'assets/css/responsive.css';
-
+@import "alertifyjs/build/css/alertify.min.css";
+@import "alertifyjs/build/css/themes/bootstrap.min.css";
 
 :root {
   --bs-blue: #0d6efd;
