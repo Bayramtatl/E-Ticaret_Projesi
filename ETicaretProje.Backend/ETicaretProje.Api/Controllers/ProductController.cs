@@ -59,6 +59,23 @@ namespace ETicaretProje.Api.Controllers
                 }
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _productRepository.GetAll();
+            if (result.Success)
+            {
+                if (result.ResultObjects != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(result);
+                }
+            }
+            return BadRequest(result);
+        }
 
     }
 }
