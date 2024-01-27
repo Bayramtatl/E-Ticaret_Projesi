@@ -30,6 +30,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// CORS ayarlarýný ekleyin
+app.UseCors(options =>
+{
+    options.WithOrigins("http://localhost:4200") // Angular uygulamasýnýn adresi
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
+
 app.UseAuthorization();
 
 app.MapControllers();
