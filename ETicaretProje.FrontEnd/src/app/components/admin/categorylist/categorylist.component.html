@@ -1,1 +1,48 @@
-<p>categorylist works!</p>
+<h2 class="mt-2">Kategori Listesi</h2>
+<hr />
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    Kategoriler
+  </div>
+  <div class="card-body">
+        <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <thead>
+        <tr>
+          <th>
+            Kategori Adı
+          </th>
+          <th>
+            Açıklama
+          </th>
+          <th>
+            Aktif Mi
+          </th>
+
+          <th> İşlemler </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let category of categoryList">
+            <td>
+                {{category.categoryName}}
+            </td>
+            <td>
+                {{category.description}}
+            </td>
+            <td *ngIf="category.isActive">
+                Evet
+            </td>
+            <td *ngIf="!(category.isActive)">
+                Hayır
+            </td>
+            <td>
+             <button class="btn btn-info mr-2" title="Düzenle"><i class="fas fa-pen" ></i></button>
+             <button class="btn btn-danger"  title="Sil"><i class="fas fa-trash"></i></button>
+            </td>
+          </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>

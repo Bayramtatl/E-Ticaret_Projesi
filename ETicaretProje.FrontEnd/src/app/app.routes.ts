@@ -11,6 +11,7 @@ import { CategorylistComponent } from './components/admin/categorylist/categoryl
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminRegisterComponent } from './components/admin/admin-register/admin-register.component';
 import { ProductlistComponent } from './components/admin/productlist/productlist.component';
+import { InfoComponent } from './components/admin/info/info.component';
 
 export const routes: Routes = [
     {
@@ -32,7 +33,8 @@ export const routes: Routes = [
     {
         path:'admin',component:AdminComponent, children:[
             {path:'categorylist',component:CategorylistComponent},
-            {path:'productlist',component:ProductlistComponent}
+            {path:'productlist',component:ProductlistComponent},
+            {path: 'info', component:InfoComponent}
         ]
     },
     { path: '', redirectTo: 'shop/index', pathMatch: 'full' },

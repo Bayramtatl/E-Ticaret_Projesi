@@ -9,6 +9,7 @@
 @import 'assets/css/responsive.css';
 @import "alertifyjs/build/css/alertify.min.css";
 @import "alertifyjs/build/css/themes/bootstrap.min.css";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
 
 :root {
   --bs-blue: #0d6efd;

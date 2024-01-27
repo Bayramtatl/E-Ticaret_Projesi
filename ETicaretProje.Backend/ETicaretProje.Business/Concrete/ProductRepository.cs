@@ -2,6 +2,7 @@
 using EticaretProje.Domain.ResponseClasses;
 using ETicaretProje.Business.Abstract;
 using ETicaretProje.Dal.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -90,7 +91,8 @@ namespace ETicaretProje.Business.Concrete
 
         public async Task<ResponseObject<Product>> GetAll()
         {
-            var Product = _dataContext.Products.ToList();
+            var Product = _dataContext.Products.Include(i=> i.Category).ToList();
+            //var Product = _dataContext.Products.ToList();
             if (Product != null)
             {
                 return new ResponseObject<Product>()

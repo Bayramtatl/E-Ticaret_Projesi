@@ -1,16 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { UserLoginDto } from '../models/Dtos/UserLoginDto';
 import { Observable } from 'rxjs/internal/Observable';
+import { environment } from '../environments/environment';
 
 @Injectable()
-export class AdminLoginService {
-  apiUrl = 'https://localhost:44324/api/Admin/Login';
+export class AdminService {
+  private apiUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
 
 
   AdminLoginSubmit(AdminLoginForm: UserLoginDto): Observable<any> {
-    return this.httpClient.post(this.apiUrl, AdminLoginForm);
+    const apiUrl = `${this.apiUrl}/Admin/Login`;
+    return this.httpClient.post(apiUrl, AdminLoginForm);
   }
 }

@@ -80,3 +80,7 @@ C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETic
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\System.CodeDom.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Backend\ETicaretProje.Api\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

@@ -6,57 +6,41 @@
     Ürünler
   </div>
   <div class="card-body">
-        <table class="table" id="datatablesSimple">
+        <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
       <thead>
         <tr>
           <th>
-            
+            Ürün Adı
           </th>
           <th>
-            
+            Açıklama
           </th>
           <th>
-            
+            Kategori
           </th>
           <th>
-            
+             Resim
           </th>
           <th> İşlemler </th>
         </tr>
       </thead>
-      <tfoot>
-        <tr>
-          <th>
-            
-          </th>
-          <th>
-            
-          </th>
-          <th>
-            
-          </th>
-          <th>
-            
-          </th>
-          <th>    </th>
-      </tfoot>
       <tbody>
-
-          <tr>
+          <tr *ngFor="let product of productList">
             <td>
-
+                {{product.name}}
             </td>
             <td>
-
+                {{product.description}}
             </td>
             <td>
-
+                {{product.category?.categoryName}}
             </td>
             <td>
-
+                {{product.description}}
             </td>
             <td>
-             
+             <button class="btn btn-info mr-2" title="Düzenle"><i class="fas fa-pen" ></i></button>
+             <button class="btn btn-danger"  title="Sil"><i class="fas fa-trash"></i></button>
             </td>
           </tr>
         
