@@ -4,6 +4,7 @@
   <div class="card-header">
     <i class="fas fa-table me-1"></i>
     Kategoriler
+    <button class="btn btn-success float-right" data-toggle="modal" data-target="#categoryModal">Kategori Ekle</button>
   </div>
   <div class="card-body">
         <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
@@ -38,7 +39,7 @@
             </td>
             <td>
              <button class="btn btn-info mr-2" title="Düzenle"><i class="fas fa-pen" ></i></button>
-             <button class="btn btn-danger"  title="Sil"><i class="fas fa-trash"></i></button>
+             <button class="btn btn-danger" (click)="deleteCategory(category.id)" title="Sil"><i class="fas fa-trash"></i></button>
             </td>
           </tr>
         
@@ -46,3 +47,41 @@
     </table>
   </div>
 </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLabel">Yeni Kategori Ekle</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="createCategoryForm" (ngSubmit)="AddCategory()">
+              <!-- Form içeriği -->
+              <div class="mb-3">
+                <label for="categoryName" class="form-label">Kategori Adı:</label>
+                <input type="text" class="form-control" id="categoryName" formControlName="categoryName" [(ngModel)]="categoryName" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="description" class="form-label">Açıklama:</label>
+                <textarea class="form-control" id="description" [(ngModel)]="description" formControlName="description"></textarea>
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="isActive" formControlName="isActive">
+                <label class="form-check-label" for="isActive">Aktif Mi</label>
+              </div>
+              
+              <!-- Form içeriği sonu -->
+              <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal sonu -->

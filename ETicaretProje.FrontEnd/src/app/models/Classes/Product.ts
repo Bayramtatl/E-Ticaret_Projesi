@@ -7,5 +7,5 @@ export interface Product extends BaseObject {
   imageUrl: string;
   categoryId: number;
   category?: Category;
-  price: string;
+  price: number;
 }

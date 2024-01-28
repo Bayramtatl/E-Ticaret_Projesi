@@ -14,6 +14,6 @@ namespace EticaretProje.Domain.Entities
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
-        public string Price { get; set; }
+        public float Price { get; set; }
     }
 }

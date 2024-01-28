@@ -4,6 +4,7 @@
   <div class="card-header">
     <i class="fas fa-table me-1"></i>
     Ürünler
+    <button class="btn btn-success float-right" data-toggle="modal" data-target="#productModal">Ürün Ekle</button>
   </div>
   <div class="card-body">
         <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
@@ -36,11 +37,12 @@
                 {{product.category?.categoryName}}
             </td>
             <td>
-                {{product.description}}
+                <!-- <img src="{{product.imageUrl}}" width="50%" alt=""> -->
+                <a [href]="product.imageUrl" target="_blank">Resmi Gör</a>
             </td>
             <td>
              <button class="btn btn-info mr-2" title="Düzenle"><i class="fas fa-pen" ></i></button>
-             <button class="btn btn-danger"  title="Sil"><i class="fas fa-trash"></i></button>
+             <button class="btn btn-danger" (click)="deleteProduct(product.id)"  title="Sil"><i class="fas fa-trash"></i></button>
             </td>
           </tr>
         
@@ -48,3 +50,56 @@
     </table>
   </div>
 </div>
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Yeni Ürün Ekle</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="createProductForm" (ngSubmit)="AddProduct()">
+            <!-- Form içeriği -->
+            <div class="mb-3">
+              <label for="categoryName" class="form-label">Ürüm Adı:</label>
+              <input type="text" class="form-control" id="name" formControlName="name" [(ngModel)]="name" required>
+            </div>
+            
+            <div class="mb-3">
+              <label for="description" class="form-label">Açıklama:</label>
+              <textarea class="form-control" id="description" [(ngModel)]="description" formControlName="description"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Fiyat:</label>
+              <textarea class="form-control" id="price" [(ngModel)]="price" formControlName="price"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="categoryId" class="form-label">Kategori:</label>
+              <select class="form-control" id="categoryId" formControlName="categoryId">
+                <option value="" disabled selected>Seçiniz</option>
+                <option *ngFor="let category of categories" [value]="category.id">{{ category.categoryName }}</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Resim:</label>
+              <input type="file" class="form-control" id="image" (change)="onImageChange($event)" accept="image/*">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="isActive" [(ngModel)]="isActive" formControlName="isActive">
+              <label class="form-check-label" for="isActive">Aktif Mi</label>
+            </div>
+            
+            <!-- Form içeriği sonu -->
+            <button type="submit" class="btn btn-primary">Ekle</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal sonu -->

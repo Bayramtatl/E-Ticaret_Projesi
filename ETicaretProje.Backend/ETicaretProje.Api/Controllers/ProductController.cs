@@ -10,10 +10,52 @@ namespace ETicaretProje.Api.Controllers
     public class ProductController : ControllerBase
     {
         private IProductRepository _productRepository;
-
-        public ProductController(IProductRepository productRepository)
+        private readonly IWebHostEnvironment _environment;
+        public ProductController(IProductRepository productRepository, IWebHostEnvironment environment)
         {
             _productRepository = productRepository;
+            _environment = environment;
+        }
+        [HttpPost]
+        public async Task<IActionResult> UploadImage()
+        {
+            try
+            {
+                var imagepath = @"/assets\uploads\";
+                var file = Request.Form.Files[0]; // Gelen dosya
+                var folderName = "uploads"; // Kaydedilecek klasör adı
+                var webRootPath = @"C:\Users\tatlb\Desktop\Angulat Bootcamp\ETicaretProje\ETicaretProje.Frontend\src\assets";
+
+                // Tam klasör yolu
+                var newPath = Path.Combine(webRootPath, folderName);
+                if (!Directory.Exists(newPath))
+                {
+                    Directory.CreateDirectory(newPath); // Klasörü oluştur
+                }
+
+                if (file.Length > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var filePath = Path.Combine(newPath, fileName);
+
+                    // Dosyayı kopyala
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+
+                    // Dosyanın yoluyla birlikte başarılı yanıt gönder
+                    return Ok(Path.Combine(imagepath, fileName));
+                }
+                else
+                {
+                    return BadRequest("Dosya boş.");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex}");
+            }
         }
 
         [HttpPost]

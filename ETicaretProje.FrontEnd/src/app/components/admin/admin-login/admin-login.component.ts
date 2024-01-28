@@ -7,6 +7,8 @@ import { AlertifyMessageService } from '../../../services/alertify-message.servi
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { AdminService } from '../../../services/admin.service';
+import { AuthService } from '../../../services/auth.service';
+import { Admin } from '../../../models/Classes/Admin';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,7 @@ export class AdminLoginComponent {
   constructor(private adminService:AdminService,
     private fb: FormBuilder,
      private alertifyMessageService: AlertifyMessageService,
+     private authService: AuthService,
      private router: Router) {
     this.AdminLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,6 +42,10 @@ export class AdminLoginComponent {
         if(response.success == true){
           this.router.navigate(['/admin/productlist']); // Yönlendirilecek sayfanın yolunu belirtin
           this.alertifyMessageService.alertSuccess(response.message);
+          console.log(response)
+          var admin: Admin;
+          admin = response.resultObject;
+          this.authService.login(admin);
         }
       },
       (error) => {

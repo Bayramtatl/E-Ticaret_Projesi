@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <h2 class="mt-2">Ürün Ekle</h2>
+    <hr />
+    <form (ngSubmit)="addProduct()">
+      <div class="mb-3">
+        <label for="productName" class="form-label">Ürün Adı</label>
+        <input type="text" [(ngModel)]="newProduct.name" class="form-control" id="productName" name="productName" required>
+      </div>
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Açıklama</label>
+        <textarea [(ngModel)]="newProduct.description" class="form-control" id="productDescription" name="productDescription" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="productCategory" class="form-label">Kategori</label>
+        <input type="text" [(ngModel)]="newProduct.category" class="form-control" id="productCategory" name="productCategory" required>
+      </div>
+      <!-- Diğer gerekli alanları ekleyin -->
+  
+      <button type="submit" class="btn btn-primary">Ekle</button>
+    </form>
+  </div>

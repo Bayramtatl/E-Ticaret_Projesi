@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { AdminRegisterComponent } from './components/admin/admin-register/admin-register.component';
 import { ProductlistComponent } from './components/admin/productlist/productlist.component';
 import { InfoComponent } from './components/admin/info/info.component';
+import { AuthGuard } from './services/auth.guard';
 
 export const routes: Routes = [
     {
@@ -32,9 +33,9 @@ export const routes: Routes = [
     },
     {
         path:'admin',component:AdminComponent, children:[
-            {path:'categorylist',component:CategorylistComponent},
-            {path:'productlist',component:ProductlistComponent},
-            {path: 'info', component:InfoComponent}
+            {path:'categorylist',component:CategorylistComponent, canActivate:[AuthGuard]},
+            {path:'productlist',component:ProductlistComponent, canActivate:[AuthGuard]},
+            {path: 'info', component:InfoComponent, canActivate:[AuthGuard]}
         ]
     },
     { path: '', redirectTo: 'shop/index', pathMatch: 'full' },

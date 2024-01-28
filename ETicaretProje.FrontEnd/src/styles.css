@@ -10,6 +10,7 @@
 @import "alertifyjs/build/css/alertify.min.css";
 @import "alertifyjs/build/css/themes/bootstrap.min.css";
 @import "../node_modules/font-awesome/css/font-awesome.min.css";
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 
 :root {
   --bs-blue: #0d6efd;
@@ -11242,3 +11243,9 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
