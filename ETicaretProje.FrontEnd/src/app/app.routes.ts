@@ -13,6 +13,8 @@ import { AdminRegisterComponent } from './components/admin/admin-register/admin-
 import { ProductlistComponent } from './components/admin/productlist/productlist.component';
 import { InfoComponent } from './components/admin/info/info.component';
 import { AuthGuard } from './services/auth.guard';
+import { RegisterComponent } from './components/shop/register/register.component';
+import { LoginComponent } from './components/shop/login/login.component';
 
 export const routes: Routes = [
     {
@@ -22,7 +24,9 @@ export const routes: Routes = [
             {path:'about', component: AboutComponent},
             {path:'products', component: MarketComponent},
             {path:'cart', component: CartComponent},
-            {path:'checkout', component: CheckoutComponent}
+            {path:'checkout', component: CheckoutComponent},
+            {path:'register', component: RegisterComponent},
+            {path:'login', component: LoginComponent}
         ]
     },
     {

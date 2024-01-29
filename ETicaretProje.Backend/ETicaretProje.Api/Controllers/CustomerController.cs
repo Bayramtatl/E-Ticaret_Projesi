@@ -10,17 +10,35 @@ namespace ETicaretProje.Api.Controllers
     public class CustomerController : Controller
     {
         private ICustomerRepository _customerRepository;
-        public CustomerController(ICustomerRepository customerRepository)
+        private IAdressRepository _adressRepository;
+        public CustomerController(ICustomerRepository customerRepository, IAdressRepository adressRepository)
         {
             _customerRepository = customerRepository;
+            _adressRepository = adressRepository;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(Customer customer)
+        public async Task<IActionResult> Register([FromBody]UserRegisterDto user)
         {
+            var address = new Adress();
+            address.City = user.City;
+            address.County = user.County;
+            address.Description= user.Description;
+
+            var customer = new Customer();
+            customer.Name = user.Name;
+            customer.Surname = user.Surname;
+            customer.PhoneNumber = user.PhoneNumber;
+            customer.Email = user.Email;
+            customer.IsActive = true;
+            customer.Password= user.Password;
             var result = await _customerRepository.Add(customer);
             if (result.Success)
+            {
+                address.CustomerId = customer.Id;
+                await _adressRepository.Add(address);
                 return Ok(result);
+            }
 
             return BadRequest(result);
         }

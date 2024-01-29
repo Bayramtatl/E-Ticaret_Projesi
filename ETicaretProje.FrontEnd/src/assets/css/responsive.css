@@ -158,7 +158,8 @@
 
 	.sticky-wrapper.is-sticky .top-header-area {
 	    position: absolute!important;
-	    background-color: transparent;
+	    /* background-color: transparent; */
+		background-color: #051922;
 	}
 	.featured-box {
 	    padding: 30px;
@@ -409,7 +410,8 @@
 
 	.sticky-wrapper.is-sticky .top-header-area {
 	    position: absolute!important;
-	    background-color: transparent;
+	    /* background-color: transparent; */
+		background-color: #051922;
 	    padding: 25px 0;
 	}
 	.featured-box {

@@ -26,7 +26,8 @@ namespace ETicaretProje.Dal.Context
             modelBuilder.Entity<Customer>()
        .HasOne(c => c.Adress)
        .WithOne(a => a.Customer)
-       .HasForeignKey<Adress>(c => c.CustomerId);
+       .HasForeignKey<Adress>(c => c.CustomerId)
+       .IsRequired(false);
 
             modelBuilder.Entity<Customer>()
         .HasOne(c => c.Cart)
@@ -60,8 +61,7 @@ namespace ETicaretProje.Dal.Context
             Email = "k@k.com",
             Password = "123",
             IsActive = true,
-            PhoneNumber = "534321",
-            AdressId = 1,
+            PhoneNumber = "534321"
         });
             modelBuilder.Entity<Adress>().HasData(
         new Adress

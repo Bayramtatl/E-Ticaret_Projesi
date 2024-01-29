@@ -17,7 +17,7 @@ export class AdminComponent {
   constructor(private authService: AuthService,private router: Router){}
 // Örneğin, bir bileşen içinde
 logout(): void {
-  this.authService.logout();
+  this.authService.logoutAdmin();
   this.router.navigate(['/admin/login']);
 }
 }

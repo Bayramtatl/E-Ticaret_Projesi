@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
       
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.isLoggedInAdmin()) {
       return true;
     } else {
       // Kimlik doğrulanmamışsa giriş sayfasına yönlendir

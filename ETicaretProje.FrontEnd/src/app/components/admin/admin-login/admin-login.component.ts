@@ -45,7 +45,7 @@ export class AdminLoginComponent {
           console.log(response)
           var admin: Admin;
           admin = response.resultObject;
-          this.authService.login(admin);
+          this.authService.loginAdmin(admin);
         }
       },
       (error) => {

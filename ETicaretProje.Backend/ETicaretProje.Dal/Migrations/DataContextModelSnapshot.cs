@@ -81,7 +81,7 @@ namespace ETicaretProje.Dal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int?>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -94,7 +94,8 @@ namespace ETicaretProje.Dal.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[CustomerId] IS NOT NULL");
 
                     b.ToTable("Adresses");
 
@@ -204,9 +205,6 @@ namespace ETicaretProje.Dal.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdressId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CartId")
                         .HasColumnType("int");
 
@@ -241,7 +239,6 @@ namespace ETicaretProje.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            AdressId = 1,
                             CartId = 0,
                             Email = "k@k.com",
                             IsActive = true,
@@ -316,9 +313,7 @@ namespace ETicaretProje.Dal.Migrations
                 {
                     b.HasOne("EticaretProje.Domain.Entities.Customer", "Customer")
                         .WithOne("Adress")
-                        .HasForeignKey("EticaretProje.Domain.Entities.Adress", "CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("EticaretProje.Domain.Entities.Adress", "CustomerId");
 
                     b.Navigation("Customer");
                 });
@@ -381,8 +376,7 @@ namespace ETicaretProje.Dal.Migrations
 
             modelBuilder.Entity("EticaretProje.Domain.Entities.Customer", b =>
                 {
-                    b.Navigation("Adress")
-                        .IsRequired();
+                    b.Navigation("Adress");
 
                     b.Navigation("Cart")
                         .IsRequired();
