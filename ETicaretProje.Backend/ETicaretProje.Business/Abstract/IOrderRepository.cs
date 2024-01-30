@@ -1,4 +1,5 @@
 ﻿using EticaretProje.Domain.Entities;
+using EticaretProje.Domain.ResponseClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace ETicaretProje.Business.Abstract
 {
     public interface IOrderRepository : IBaseRepository<Order>
     {
+        public Task<ResponseObject<Order>> GetByCustomerId(int id);
     }
 }

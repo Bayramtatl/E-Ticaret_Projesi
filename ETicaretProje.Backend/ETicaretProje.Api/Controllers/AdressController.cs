@@ -16,7 +16,7 @@ namespace ETicaretProje.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add(Adress adress)
+        public async Task<IActionResult> Add([FromBody] Adress adress)
         {
             var result = await _adressRepository.Add(adress);
             if (result.Success)
@@ -39,7 +39,7 @@ namespace ETicaretProje.Api.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Update(Adress adress)
+        public async Task<IActionResult> Update([FromBody]Adress adress)
         {
             var result = await _adressRepository.Update(adress);
             if (result.Success)

@@ -31,7 +31,7 @@ export class CheckoutComponent implements OnInit {
     this.GetCartProducts();
   }
   GetCartProducts() {
-    let cartId = this.customer.cart.id;
+    let cartId = this.customer.cartId;
     return this.cartService.GetCartProducts(cartId).subscribe(
       (data) => {
         this.cartProductList = data.resultObjects;
@@ -55,6 +55,7 @@ export class CheckoutComponent implements OnInit {
     const customer = this.authService.getCustomer();
     this.order = new Order(); 
     this.order.cartProducts = this.cartProductList;
+    console.log(this.order.cartProducts);
     this.order.customerId = customer.id;
     this.order.createdDate = new Date().toISOString();
     let ord:Order= this.order;

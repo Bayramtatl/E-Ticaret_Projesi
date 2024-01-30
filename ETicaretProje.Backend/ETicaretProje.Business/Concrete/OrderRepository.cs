@@ -2,6 +2,7 @@
 using EticaretProje.Domain.ResponseClasses;
 using ETicaretProje.Business.Abstract;
 using ETicaretProje.Dal.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -105,6 +106,28 @@ namespace ETicaretProje.Business.Concrete
                 {
                     Message = "İşlem Başarılı, kayıtlar listelendi",
                     ResultObjects = Order,
+                    Success = true
+                };
+            }
+            else
+            {
+                return new ResponseObject<Order>()
+                {
+                    Message = "Sistemde ilgili kayıtlar bulunmamaktadır",
+                    ResultObjects = null,
+                    Success = true
+                };
+            }
+        }
+        public async Task<ResponseObject<Order>> GetByCustomerId(int id)
+        {
+            var Orders = _dataContext.Orders.Include(i=> i.CartProducts).Where(i=> i.CustomerId == id).ToList();
+            if (Orders != null)
+            {
+                return new ResponseObject<Order>()
+                {
+                    Message = "İşlem Başarılı, kayıtlar listelendi",
+                    ResultObjects = Orders,
                     Success = true
                 };
             }

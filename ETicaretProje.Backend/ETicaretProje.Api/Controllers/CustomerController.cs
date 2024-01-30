@@ -59,7 +59,7 @@ namespace ETicaretProje.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(Customer customer)
+        public async Task<IActionResult> Update([FromBody] Customer customer)
         {
             var result = await _customerRepository.Update(customer);
             if (result.Success)

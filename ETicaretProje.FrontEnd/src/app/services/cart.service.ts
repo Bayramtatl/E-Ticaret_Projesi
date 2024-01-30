@@ -25,4 +25,8 @@ export class CartService {
     const apiUrl = `${this.apiUrl}/Order/Add`;
     return this.httpClient.post(apiUrl,order)
   }
+  getOrdersByCustomerId(customerId:number): Observable<any>{
+    const apiUrl = `${this.apiUrl}/Order/GetOrdersByCustomerId?id=${customerId}`;
+    return this.httpClient.get<any>(apiUrl);
+  }
 }

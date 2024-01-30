@@ -26,5 +26,22 @@ namespace ETicaretProje.Api.Controllers
             return BadRequest(result);
 
         }
+        [HttpGet]
+        public async Task<IActionResult> GetOrdersByCustomerId(int id)
+        {
+            var result = await _orderRepository.GetByCustomerId(id);
+            if (result.Success)
+            {
+                if (result.ResultObjects != null)
+                {
+                    return Ok(result);
+                }
+                else
+                {
+                    return NotFound(result);
+                }
+            }
+            return BadRequest(result);
+        }
     }
 }

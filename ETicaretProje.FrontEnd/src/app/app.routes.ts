@@ -16,6 +16,8 @@ import { AuthGuard } from './services/auth.guard';
 import { RegisterComponent } from './components/shop/register/register.component';
 import { LoginComponent } from './components/shop/login/login.component';
 import { AuthGuardCustomer } from './services/auth.guard.customer';
+import { OrdersComponent } from './components/shop/orders/orders.component';
+import { UserinfoComponent } from './components/shop/userinfo/userinfo.component';
 
 export const routes: Routes = [
     {
@@ -27,7 +29,9 @@ export const routes: Routes = [
             {path:'cart', component: CartComponent,canActivate:[AuthGuardCustomer]},
             {path:'checkout', component: CheckoutComponent, canActivate:[AuthGuardCustomer]},
             {path:'register', component: RegisterComponent},
-            {path:'login', component: LoginComponent}
+            {path:'login', component: LoginComponent},
+            {path:'orders', component: OrdersComponent,canActivate:[AuthGuardCustomer]},
+            {path:'userinfo', component: UserinfoComponent,canActivate:[AuthGuardCustomer]}
         ]
     },
     {
