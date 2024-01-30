@@ -10,42 +10,46 @@ using System.Threading.Tasks;
 
 namespace ETicaretProje.Business.Concrete
 {
-    public class OrderRepository : IOrderRepository
+    public class CartProductRepository : ICartProductRepository
     {
         private readonly DataContext _dataContext;
-        public OrderRepository(DataContext dataContext)
+        public CartProductRepository(DataContext dataContext)
         {
-            _dataContext= dataContext;
+            _dataContext = dataContext;
         }
-
-        public async Task<ResponseObject<Order>> Add(Order model)
+        public async Task<ResponseObject<CartProduct>> Add(CartProduct model)
         {
             try
             {
-                var cp = model.CartProducts;
-                model.CartProducts = null;
-                _dataContext.Orders.Add(model);
-
-                var saveresult = await _dataContext.SaveChangesAsync();
-                foreach(var product in cp) 
+                var cp = _dataContext.CartProducts.FirstOrDefault(i => i.ProductId == model.ProductId && i.CartId == model.CartId);
+                if (cp != null)
                 {
-                    product.CartId = null;
-                    product.OrderId = model.Id;
-                    _dataContext.CartProducts.Update(product);                      
-                }
-                _dataContext.SaveChanges();
-                if (saveresult > 0)
-                {
-                    return new ResponseObject<Order>()
+                    cp.Quantity = cp.Quantity + 1;
+                    _dataContext.CartProducts.Update(cp);
+                    await _dataContext.SaveChangesAsync();
+                    return new ResponseObject<CartProduct>()
                     {
-                        Message = "Sipariş verildi.",
+                        Message = "İşlem Başarılı",
                         ResultObject = model,
                         Success = true
                     };
                 }
-                return new ResponseObject<Order>()
+                _dataContext.CartProducts.Add(model);
+
+                var saveresult = await _dataContext.SaveChangesAsync();
+
+                if (saveresult > 0)
                 {
-                    Message = "Sipariş Esnasında Bir Hata Oluştu",
+                    return new ResponseObject<CartProduct>()
+                    {
+                        Message = "İşlem Başarılı",
+                        ResultObject = model,
+                        Success = true
+                    };
+                }
+                return new ResponseObject<CartProduct>()
+                {
+                    Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = model,
                     Success = false
                 };
@@ -53,7 +57,7 @@ namespace ETicaretProje.Business.Concrete
             }
             catch (Exception)
             {
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = model,
@@ -62,23 +66,23 @@ namespace ETicaretProje.Business.Concrete
             }
         }
 
-        public async Task<ResponseObject<Order>> Delete(int id)
+        public async Task<ResponseObject<CartProduct>> Delete(int id)
         {
-            Order deleted_obj = _dataContext.Orders.FirstOrDefault(i => i.Id == id);
+            CartProduct deleted_obj = _dataContext.CartProducts.FirstOrDefault(i => i.Id == id);
             if (deleted_obj != null)
             {
-                _dataContext.Orders.Remove(deleted_obj);
+                _dataContext.CartProducts.Remove(deleted_obj);
                 var saveResult = await _dataContext.SaveChangesAsync();
                 if (saveResult > 0)
                 {
-                    return new ResponseObject<Order>()
+                    return new ResponseObject<CartProduct>()
                     {
                         Message = "Silme İşlemi Başarılı",
                         ResultObject = null,
                         Success = true
                     };
                 }
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = deleted_obj,
@@ -87,7 +91,7 @@ namespace ETicaretProje.Business.Concrete
             }
             else
             {
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İlgili kayıt bulunamadı",
                     ResultObject = null,
@@ -96,44 +100,26 @@ namespace ETicaretProje.Business.Concrete
             }
         }
 
-        public async Task<ResponseObject<Order>> GetAll()
+        public Task<ResponseObject<CartProduct>> GetAll()
         {
-            var Order = _dataContext.Orders.ToList();
-            if (Order != null)
-            {
-                return new ResponseObject<Order>()
-                {
-                    Message = "İşlem Başarılı, kayıtlar listelendi",
-                    ResultObjects = Order,
-                    Success = true
-                };
-            }
-            else
-            {
-                return new ResponseObject<Order>()
-                {
-                    Message = "Sistemde ilgili kayıtlar bulunmamaktadır",
-                    ResultObjects = null,
-                    Success = true
-                };
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<ResponseObject<Order>> GetById(int id)
+        public async Task<ResponseObject<CartProduct>> GetById(int id)
         {
-            var Order = _dataContext.Orders.FirstOrDefault(i => i.Id == id);
-            if (Order != null)
+            var CartProduct = _dataContext.CartProducts.FirstOrDefault(i => i.Id == id);
+            if (CartProduct != null)
             {
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İşlem Başarılı, kayıtlar listelendi",
-                    ResultObject = Order,
+                    ResultObject = CartProduct,
                     Success = true
                 };
             }
             else
             {
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "Sistemde ilgili kayıt bulunmamaktadır",
                     ResultObject = null,
@@ -141,25 +127,47 @@ namespace ETicaretProje.Business.Concrete
                 };
             }
         }
+        public async Task<ResponseObject<CartProduct>> GetByCartId(int id)
+        {
+            var CartProducts = _dataContext.CartProducts.Where(i => i.CartId == id).ToList();
+            if (CartProducts != null)
+            {
+                return new ResponseObject<CartProduct>()
+                {
+                    Message = "İşlem Başarılı, kayıtlar listelendi",
+                    ResultObjects = CartProducts,
+                    Success = true
+                };
+            }
+            else
+            {
+                return new ResponseObject<CartProduct>()
+                {
+                    Message = "Sistemde ilgili kayıt bulunmamaktadır",
+                    ResultObjects = null,
+                    Success = true
+                };
+            }
+        }
 
-        public async Task<ResponseObject<Order>> Update(Order model)
+        public async Task<ResponseObject<CartProduct>> Update(CartProduct model)
         {
             try
             {
-                _dataContext.Orders.Update(model);
+                _dataContext.CartProducts.Update(model);
 
                 var saveresult = await _dataContext.SaveChangesAsync();
 
                 if (saveresult > 0)
                 {
-                    return new ResponseObject<Order>()
+                    return new ResponseObject<CartProduct>()
                     {
                         Message = "İşlem Başarılı",
                         ResultObject = model,
                         Success = true
                     };
                 }
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = model,
@@ -169,7 +177,7 @@ namespace ETicaretProje.Business.Concrete
             }
             catch (Exception)
             {
-                return new ResponseObject<Order>()
+                return new ResponseObject<CartProduct>()
                 {
                     Message = "İşlem Sırasında Hata Oluştu",
                     ResultObject = model,

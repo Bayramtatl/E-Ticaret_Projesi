@@ -14,7 +14,7 @@ namespace EticaretProje.Domain.Entities
             CartProducts= new List<CartProduct>();
         }
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
         public ICollection<CartProduct>? CartProducts { get; set; }
         public DateTime CreatedDate { get; set; }
 

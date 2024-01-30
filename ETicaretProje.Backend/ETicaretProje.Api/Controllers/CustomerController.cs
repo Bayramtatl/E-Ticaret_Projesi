@@ -11,10 +11,12 @@ namespace ETicaretProje.Api.Controllers
     {
         private ICustomerRepository _customerRepository;
         private IAdressRepository _adressRepository;
-        public CustomerController(ICustomerRepository customerRepository, IAdressRepository adressRepository)
+        private ICartRepository _cartRepository;
+        public CustomerController(ICustomerRepository customerRepository, IAdressRepository adressRepository, ICartRepository cartRepository)
         {
             _customerRepository = customerRepository;
             _adressRepository = adressRepository;
+            _cartRepository = cartRepository;
         }
 
         [HttpPost]
@@ -24,7 +26,8 @@ namespace ETicaretProje.Api.Controllers
             address.City = user.City;
             address.County = user.County;
             address.Description= user.Description;
-
+            var cart = new Cart();
+            cart.IsActive = true;
             var customer = new Customer();
             customer.Name = user.Name;
             customer.Surname = user.Surname;
@@ -37,13 +40,18 @@ namespace ETicaretProje.Api.Controllers
             {
                 address.CustomerId = customer.Id;
                 await _adressRepository.Add(address);
+                cart.Customer = customer;
+                cart.CustomerId = customer.Id;
+                await _cartRepository.Add(cart);
+                customer.CartId= cart.Id;
+                _customerRepository.Update(customer);
                 return Ok(result);
             }
 
             return BadRequest(result);
         }
         [HttpPost]
-        public async Task<IActionResult> Login(UserLoginDto user)
+        public async Task<IActionResult> Login([FromBody]UserLoginDto user)
         {
             var result = await _customerRepository.Login(user);
             if(result.Success) return Ok(result);

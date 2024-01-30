@@ -2,14 +2,14 @@
     <div class="row justify-content-center">
         <div class="col-md-6 p-5" style="background-color: #f3f1ee;border-radius: 10px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
             <h2 class="text-center mb-4" style="color: #469af3;">Giriş Yap</h2>
-            <form>
+            <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
                 <div class="form-group">
                     <label for="inputEmail">E-posta</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="E-posta">
+                    <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="E-posta">
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Şifre</label>
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Şifre">
+                    <input type="password" class="form-control" id="inputPassword" formControlName="password" placeholder="Şifre">
                 </div>
                 <a [routerLink]="['/shop/register']" routerLinkActive="router-link-active" >Henüz bir hesabın yok mu ? Kayıt ol</a>
                 <button type="submit" class="btn btn-primary px-4 float-right">Giriş Yap</button>

@@ -9,7 +9,7 @@
 						    <div class="card-header" id="headingOne">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Billing Address
+						          Alıcı Bilgileri
 						        </button>
 						      </h5>
 						    </div>
@@ -18,11 +18,10 @@
 						      <div class="card-body">
 						        <div class="billing-address-form">
 						        	<form action="index.html">
-						        		<p><input type="text" placeholder="Name"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Address"></p>
-						        		<p><input type="tel" placeholder="Phone"></p>
-						        		<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea></p>
+						        		<p><input type="text" value="{{customer.name}}" placeholder="Adınız"></p>
+						        		<p><input type="email"value="{{customer.surname}}" placeholder="Soyadınız"></p>
+						        		<p><input type="tel" value="{{customer.phoneNumber}}" placeholder="Telefon numaranız"></p>
+						        		<p><textarea cols="30" rows="3" placeholder="Sipariş Notu"></textarea></p>
 						        	</form>
 						        </div>
 						      </div>
@@ -32,14 +31,18 @@
 						    <div class="card-header" id="headingTwo">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-						          Shipping Address
+						          Teslimat Adresi
 						        </button>
 						      </h5>
 						    </div>
 						    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 						      <div class="card-body">
-						        <div class="shipping-address-form">
-						        	<p>Your shipping address form is here.</p>
+						        <div class="shipping-address-form billing-address-form">
+									<form>
+									<p><input type="text" value="{{customer.adress.county}}" placeholder="İlçe"></p>
+									<p><input type="email" value="{{customer.adress.city}}" placeholder="Şehir"></p>
+									<p><input type="tel" value="{{customer.adress.description}}" placeholder="Adres bilgisi"></p>
+									</form>
 						        </div>
 						      </div>
 						    </div>
@@ -48,14 +51,18 @@
 						    <div class="card-header" id="headingThree">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						          Card Details
+						          Kart Bilgileri
 						        </button>
 						      </h5>
 						    </div>
 						    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 						      <div class="card-body">
-						        <div class="card-details">
-						        	<p>Your card details goes here.</p>
+						        <div class="card-details billing-address-form">
+									<form>
+									<p><input type="text" placeholder="Kart Numarası"></p>
+									<p><input type="email" placeholder="Son kullanma tarihi"></p>
+									<p><input type="tel" placeholder="CVC"></p>
+									</form>
 						        </div>
 						      </div>
 						    </div>
@@ -70,44 +77,37 @@
 						<table class="order-details">
 							<thead>
 								<tr>
-									<th>Your order Details</th>
-									<th>Price</th>
+									<th>Sipariş Detayları</th>
+									<th>Sipariş Ücreti</th>
 								</tr>
 							</thead>
 							<tbody class="order-details-body">
 								<tr>
-									<td>Product</td>
-									<td>Total</td>
+									<td>Ürünler</td>
+									<td>Toplam</td>
 								</tr>
-								<tr>
-									<td>Strawberry</td>
-									<td>$85.00</td>
-								</tr>
-								<tr>
-									<td>Berry</td>
-									<td>$70.00</td>
-								</tr>
-								<tr>
-									<td>Lemon</td>
-									<td>$35.00</td>
+																
+								<tr *ngFor="let item of cartProductList">
+									<td>{{item.productName}} x {{item.quantity}}kg</td>
+									<td>{{item.price*item.quantity}}</td>
 								</tr>
 							</tbody>
 							<tbody class="checkout-details">
 								<tr>
-									<td>Subtotal</td>
-									<td>$190</td>
+									<td>Ara Toplam</td>
+									<td>{{ calculateSubtotal() }}</td>
 								</tr>
 								<tr>
-									<td>Shipping</td>
+									<td>Taşıma Bedeli</td>
 									<td>$50</td>
 								</tr>
 								<tr>
-									<td>Total</td>
-									<td>$240</td>
+									<td>Toplam</td>
+									<td>{{ calculateSubtotal()+50 }}</td>
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Place Order</a>
+						<a (click)="createOrder()" class="boxed-btn">Siparişi Tamamla</a>
 					</div>
 				</div>
 			</div>

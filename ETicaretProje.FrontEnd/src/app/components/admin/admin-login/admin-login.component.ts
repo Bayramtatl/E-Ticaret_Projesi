@@ -33,7 +33,6 @@ export class AdminLoginComponent {
   // Public olarak tanımlanan fonksiyon
   AdminLoginSubmit(): void {
     const formData: UserLoginDto = this.AdminLoginForm.value;
-
     // Servis üzerinden API'ye istek gönderin
     this.adminService.AdminLoginSubmit(formData)
     .subscribe(

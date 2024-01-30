@@ -10,9 +10,11 @@ namespace ETicaretProje.Api.Controllers
     public class OrderController : ControllerBase
     {
         private IOrderRepository _orderRepository;
-        public OrderController(IOrderRepository orderRepository)
+        private ICartProductRepository _cartProductRepository;
+        public OrderController(IOrderRepository orderRepository, ICartProductRepository cartProductRepository)
         {
             _orderRepository = orderRepository;
+            _cartProductRepository = cartProductRepository;
         }
         [HttpPost]
         public async Task<IActionResult> Add(Order order)

@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace ETicaretProje.Business.Abstract
 {
-    public interface ICartRepository : IBaseRepository<Cart>
+    public interface ICartProductRepository : IBaseRepository<CartProduct>
     {
+        public Task<ResponseObject<CartProduct>> GetByCartId(int id);
     }
 }

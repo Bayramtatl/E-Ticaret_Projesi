@@ -13,9 +13,9 @@ namespace ETicaretProje.Business.Concrete
     public class CartRepository : ICartRepository
     {
         private readonly DataContext _dataContext;
-        public CartRepository( DataContext dataContext)
+        public CartRepository(DataContext dataContext)
         {
-            _dataContext= dataContext;
+            _dataContext = dataContext;
         }
 
         public async Task<ResponseObject<Cart>> Add(Cart model)
@@ -54,9 +54,38 @@ namespace ETicaretProje.Business.Concrete
             }
         }
 
-        public Task<ResponseObject<Cart>> Delete(int id)
+        public async Task<ResponseObject<Cart>> Delete(int id)
         {
-            throw new NotImplementedException();
+            Cart deleted_obj = _dataContext.Carts.FirstOrDefault(i => i.Id == id);
+            if (deleted_obj != null)
+            {
+                _dataContext.Carts.Remove(deleted_obj);
+                var saveResult = await _dataContext.SaveChangesAsync();
+                if (saveResult > 0)
+                {
+                    return new ResponseObject<Cart>()
+                    {
+                        Message = "Silme İşlemi Başarılı",
+                        ResultObject = null,
+                        Success = true
+                    };
+                }
+                return new ResponseObject<Cart>()
+                {
+                    Message = "İşlem Sırasında Hata Oluştu",
+                    ResultObject = deleted_obj,
+                    Success = false
+                };
+            }
+            else
+            {
+                return new ResponseObject<Cart>()
+                {
+                    Message = "İlgili kayıt bulunamadı",
+                    ResultObject = null,
+                    Success = false
+                };
+            }
         }
 
         public Task<ResponseObject<Cart>> GetAll()

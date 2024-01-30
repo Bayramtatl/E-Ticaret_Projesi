@@ -8,38 +8,24 @@
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
 									<th class="product-remove"></th>
-									<th class="product-image">Product Image</th>
-									<th class="product-name">Name</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
+									<!-- <th class="product-image">Product Image</th> -->
+									<th>Ürün</th>
+									<th>Ürün Fiyatı</th>
+									<th>Adet</th>
+									<th>Toplam</th>
 								</tr>
 							</thead>
 							<tbody>
+								<ng-container *ngFor="let cartProduct of cartProductList">
 								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
+									<td class="product-remove"><a><i class="fa fa-window-close"></i></a></td>
+									<!-- <td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td> -->
+									<td class="product-name">{{cartProduct.productName}}</td>
+									<td class="product-price">{{cartProduct.price}} ₺</td>
+									<td class="product-quantity"><input type="number" [(ngModel)]="cartProduct.quantity"(ngModelChange)="updateTotal()" min="1"></td>
+									<td class="product-total">{{ calculateProductTotal(cartProduct) }}</td>
 								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
+								</ng-container>
 							</tbody>
 						</table>
 					</div>
@@ -50,40 +36,31 @@
 						<table class="total-table">
 							<thead class="total-table-head">
 								<tr class="table-total-row">
-									<th>Total</th>
-									<th>Price</th>
+									<th>Toplam</th>
+									<th>Ücret</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="total-data">
-									<td><strong>Subtotal: </strong></td>
+									<td><strong>Ara Toplam: </strong></td>
 									<td>$500</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Shipping: </strong></td>
+									<td><strong>Teslimat: </strong></td>
 									<td>$45</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Total: </strong></td>
+									<td><strong>Toplam: </strong></td>
 									<td>$545</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a  class="boxed-btn">Update Cart</a>
-							<a  class="boxed-btn black">Check Out</a>
+							<a [routerLink]="['/shop/products']" routerLinkActive="router-link-active"  class="boxed-btn">Sepete Ürün Ekle</a>
+							<a [routerLink]="['/shop/checkout']" class="boxed-btn black">Ödemeye Geç</a>
 						</div>
 					</div>
 
-					<div class="coupon-section">
-						<h3>Apply Coupon</h3>
-						<div class="coupon-form-wrap">
-							<form action="index.html">
-								<p><input type="text" placeholder="Coupon"></p>
-								<p><input type="submit" value="Apply"></p>
-							</form>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

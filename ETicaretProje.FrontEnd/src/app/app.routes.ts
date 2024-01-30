@@ -15,6 +15,7 @@ import { InfoComponent } from './components/admin/info/info.component';
 import { AuthGuard } from './services/auth.guard';
 import { RegisterComponent } from './components/shop/register/register.component';
 import { LoginComponent } from './components/shop/login/login.component';
+import { AuthGuardCustomer } from './services/auth.guard.customer';
 
 export const routes: Routes = [
     {
@@ -23,8 +24,8 @@ export const routes: Routes = [
             {path:'contact', component: ContactComponent},
             {path:'about', component: AboutComponent},
             {path:'products', component: MarketComponent},
-            {path:'cart', component: CartComponent},
-            {path:'checkout', component: CheckoutComponent},
+            {path:'cart', component: CartComponent,canActivate:[AuthGuardCustomer]},
+            {path:'checkout', component: CheckoutComponent, canActivate:[AuthGuardCustomer]},
             {path:'register', component: RegisterComponent},
             {path:'login', component: LoginComponent}
         ]
