@@ -1,5 +1,6 @@
 # Fruithka E-Ticaret Sitesi Otomasyonu Projesi
 Bu proje Angular 17i .Net 7.0 ve Sql Server kullanılarak oluşturulmuştur ve bir gıda ürünü satıcı firmanın ürünlerini internet üzerinden satışını mümkün kılan otomasyon yazılımıdır.
+Projenin tanıtımı görsel tanıtımı için [Dökümantasyon](https://github.com/Bayramtatl/TechCareer_HyperCompany_AngularProject/blob/master/Documents/Fruithka%20-%20Bayram%20Tatl%C4%B1.pdf)
 ## Backend'in kurulumu
 Backend dosyaları içerisinde yer alan appsettings.json içerisine veri tabanı bağlantısı yapılır.
 ```sh
