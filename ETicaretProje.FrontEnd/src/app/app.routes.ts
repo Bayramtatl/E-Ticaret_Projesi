@@ -18,6 +18,7 @@ import { LoginComponent } from './components/shop/login/login.component';
 import { AuthGuardCustomer } from './services/auth.guard.customer';
 import { OrdersComponent } from './components/shop/orders/orders.component';
 import { UserinfoComponent } from './components/shop/userinfo/userinfo.component';
+import { OrderlistComponent } from './components/admin/orderlist/orderlist.component';
 
 export const routes: Routes = [
     {
@@ -44,7 +45,8 @@ export const routes: Routes = [
         path:'admin',component:AdminComponent, children:[
             {path:'categorylist',component:CategorylistComponent, canActivate:[AuthGuard]},
             {path:'productlist',component:ProductlistComponent, canActivate:[AuthGuard]},
-            {path: 'info', component:InfoComponent, canActivate:[AuthGuard]}
+            {path: 'info', component:InfoComponent, canActivate:[AuthGuard]},
+            {path: 'orderlist', component:OrderlistComponent, canActivate:[AuthGuard]}
         ]
     },
     { path: '', redirectTo: 'shop/index', pathMatch: 'full' },

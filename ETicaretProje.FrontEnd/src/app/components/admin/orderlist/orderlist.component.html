@@ -1,0 +1,45 @@
+<h2 class="mt-2">Sipariş Listesi</h2>
+<hr />
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i>
+    Siparişler
+  </div>
+  <div class="card-body">
+    <table
+      class="table"
+      datatable
+      [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger"
+    >
+      <thead>
+        <tr>
+          <th>Sipariş Tarihi</th>
+          <th>Siparişi Veren Kişi</th>
+          <th>Ürünler</th>
+          <th>Toplam</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderList">
+          <td>
+            {{ order.createdDate | date : "yyyy-MM-dd HH:mm:ss" }}
+          </td>
+          <td>{{ order.customer?.name }} {{ order.customer?.surname }}</td>
+          <td>
+            <ul class="">
+              <li *ngFor="let item of order.cartProducts">
+                ( {{ item.productName }}: {{ item.price }}₺ ) x
+                {{ item.quantity }} = {{ item.price * item.quantity }}₺
+              </li>
+              <li>Teslimat = 45₺</li>
+            </ul>
+          </td>
+          <td>
+            {{calculateTotal(order.cartProducts) }}₺
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

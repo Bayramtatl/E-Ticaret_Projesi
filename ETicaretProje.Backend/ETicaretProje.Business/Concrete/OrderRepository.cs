@@ -99,7 +99,7 @@ namespace ETicaretProje.Business.Concrete
 
         public async Task<ResponseObject<Order>> GetAll()
         {
-            var Order = _dataContext.Orders.ToList();
+            var Order = _dataContext.Orders.Include(c=> c.Customer).Include(c=> c.CartProducts).ToList();
             if (Order != null)
             {
                 return new ResponseObject<Order>()
