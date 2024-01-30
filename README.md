@@ -1,7 +1,14 @@
-# ETicaretProjeFrontend
+# Fruithka E-Ticaret Sitesi Otomasyonu Projesi
+Bu proje Angular 17i .Net 7.0 ve Sql Server kullanılarak oluşturulmuştur ve bir gıda ürünü satıcı firmanın ürünlerini internet üzerinden satışını mümkün kılan otomasyon yazılımıdır.
+## Backend'in kurulumu
+Backend dosyaları içerisinde yer alan appsettings.json içerisine veri tabanı bağlantısı yapılır.
+`add-migration 1000`
+`update-database `
+Yukarıdaki kodlar npm konsoluna girilerek veritabanı code first yöntemi aracılığıyla güncellenmiş olur.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
-
+##Frontend'in kurulumu
+Projede yüklü olan paketlerin güncellenebilmesi için
+`npm i`
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
