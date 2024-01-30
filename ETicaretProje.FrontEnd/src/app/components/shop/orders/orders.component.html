@@ -2,35 +2,42 @@
   <div class="container">
     <div class="row">
       <h2 class="text-center">Sipariş Geçmişi</h2>
-      <div class="col-lg-8 col-md-12 mx-auto"> <!-- mx-auto sınıfını ekledik -->
+      <div class="col-lg-8 col-md-12 mx-auto">
+        <!-- mx-auto sınıfını ekledik -->
         <div class="cart-table-wrap">
-          <table class="cart-table">
-            <thead class="cart-table-head">
-              <tr class="table-head-row">
-                <th>Sipariş Tarihi</th>
-                <th>Sipariş Ürünleri</th>
-                <th>Toplam</th>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+            <thead style="background-color: #f8f9fa;">
+              <tr style="border: 1px solid #dee2e6; text-align: center;">
+                <th style="padding: 10px;">Sipariş Tarihi</th>
+                <th style="padding: 10px;">Sipariş Ürünleri</th>
+                <th style="padding: 10px;">Toplam</th>
               </tr>
             </thead>
             <tbody>
               <ng-container *ngFor="let order of orders">
-                <tr class="table-body-row">
-                  <!-- <td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td> -->
-                  <td class="product-name">{{ order.createdDate | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-
-                  <td class="product-price"><ul class="list-unstyled"><ng-container *ngFor="let item of order.cartProducts">
-                    
-                  <li> ( {{item.productName}}: {{item.price}}₺ ) x {{item.quantity}} = {{item.price * item.quantity}}₺</li></ng-container>
-                  <li>Teslimat = 45₺</li>
-                </ul>
+                <tr style="border: 1px solid #dee2e6;">
+                  <td style="border: 1px solid #dee2e6; padding: 10px; text-align: center;">
+                    {{ order.createdDate | date : "yyyy-MM-dd HH:mm:ss" }}
                   </td>
-                  <td class="product-total">
+                  <td style="border: 1px solid #dee2e6; padding: 10px; text-align: center;">
+                    <ul style="padding: 0; list-style: none; margin: 0;">
+                      <ng-container *ngFor="let item of order.cartProducts">
+                        <li style="padding: 5px 0;">
+                          <span>{{ item.productName }}</span> x {{ item.quantity }} = {{ item.price * item.quantity }}₺
+                        </li>
+                      </ng-container>
+                      <li style="padding: 5px 0; font-weight: bold;">Teslimat: 45₺</li>
+                    </ul>
+                  </td>
+                  <td style="border: 1px solid #dee2e6; padding: 10px; text-align: center;">
                     {{ calculateTotal(order.cartProducts) }}₺
                   </td>
                 </tr>
               </ng-container>
             </tbody>
           </table>
+          
+          
         </div>
       </div>
     </div>

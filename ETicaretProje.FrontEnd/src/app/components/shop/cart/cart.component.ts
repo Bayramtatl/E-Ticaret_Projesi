@@ -40,7 +40,13 @@ export class CartComponent implements OnInit {
   updateTotal() {
     this.total = this.cartProductList.reduce((acc, product) => acc + this.calculateProductTotal(product), 0);
   }
-
+  calculateSubtotal(): number {
+    if (this.cartProductList) {
+      return this.cartProductList.reduce((acc:number, item:any) => acc + (item.price * item.quantity), 0);
+    } else {
+      return 0;
+    }
+  }
   // Add this function to calculate the total for a specific product
   calculateProductTotal(product: CartProduct): number {
     return product.price * product.quantity;

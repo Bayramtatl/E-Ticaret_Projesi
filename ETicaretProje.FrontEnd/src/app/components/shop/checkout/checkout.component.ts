@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Customer } from '../../../models/Classes/Customer';
 import { Order } from '../../../models/Classes/Order';
 import { AlertifyMessageService } from '../../../services/alertify-message.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -22,7 +23,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private authService: AuthService,
-    private alertifyMessageService: AlertifyMessageService
+    private alertifyMessageService: AlertifyMessageService,
+    private router: Router
   ) {
     this.customer = this.authService.getCustomer();
     console.log(this.customer);
@@ -65,6 +67,7 @@ export class CheckoutComponent implements OnInit {
         // İstek başarılı olduğunda burası çalışır
         if (response.success == true) {
           this.alertifyMessageService.alertSuccess(response.message);
+          this.router.navigate(['/shop/products']);
           console.log(response);
         }
       },

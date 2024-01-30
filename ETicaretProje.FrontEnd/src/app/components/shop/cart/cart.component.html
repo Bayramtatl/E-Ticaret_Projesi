@@ -7,7 +7,7 @@
 						<table class="cart-table">
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
-									<th class="product-remove"></th>
+									<th class="product-remove"> Kaldır</th>
 									<!-- <th class="product-image">Product Image</th> -->
 									<th>Ürün</th>
 									<th>Ürün Fiyatı</th>
@@ -18,7 +18,7 @@
 							<tbody>
 								<ng-container *ngFor="let cartProduct of cartProductList">
 								<tr class="table-body-row">
-									<td class="product-remove"><a><i class="fa fa-window-close"></i></a></td>
+									<td class="product-remove"><a class="btn btn-outline-danger"><i class="fa fa-remove" style="color:red"></i></a></td>
 									<!-- <td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td> -->
 									<td class="product-name">{{cartProduct.productName}}</td>
 									<td class="product-price">{{cartProduct.price}} ₺</td>
@@ -33,25 +33,36 @@
 
 				<div class="col-lg-4">
 					<div class="total-section">
-						<table class="total-table">
-							<thead class="total-table-head">
-								<tr class="table-total-row">
-									<th>Toplam</th>
-									<th>Ücret</th>
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th>Sipariş Detayları</th>
+									<th>Sipariş Ücreti</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr class="total-data">
-									<td><strong>Ara Toplam: </strong></td>
-									<td>$500</td>
+							<tbody class="order-details-body">
+								<tr>
+									<td>Ürünler</td>
+									<td>Toplam</td>
 								</tr>
-								<tr class="total-data">
-									<td><strong>Teslimat: </strong></td>
-									<td>$45</td>
+																
+								<tr *ngFor="let item of cartProductList">
+									<td>{{item.productName}} x {{item.quantity}}kg</td>
+									<td>{{item.price*item.quantity}}</td>
 								</tr>
-								<tr class="total-data">
-									<td><strong>Toplam: </strong></td>
-									<td>$545</td>
+							</tbody>
+							<tbody class="checkout-details">
+								<tr>
+									<td>Ara Toplam</td>
+									<td>{{ calculateSubtotal() }}</td>
+								</tr>
+								<tr>
+									<td>Taşıma Bedeli</td>
+									<td>$50</td>
+								</tr>
+								<tr>
+									<td>Toplam</td>
+									<td>{{ calculateSubtotal()+50 }}</td>
 								</tr>
 							</tbody>
 						</table>

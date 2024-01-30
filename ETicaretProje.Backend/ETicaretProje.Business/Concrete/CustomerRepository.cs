@@ -3,6 +3,7 @@ using EticaretProje.Domain.Entities;
 using EticaretProje.Domain.ResponseClasses;
 using ETicaretProje.Business.Abstract;
 using ETicaretProje.Dal.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,7 +97,7 @@ namespace ETicaretProje.Business.Concrete
 
         public async Task<ResponseObject<Customer>> GetById(int id)
         {
-            var Customer = _dataContext.Customers.FirstOrDefault(i => i.Id == id);
+            var Customer = _dataContext.Customers.Include(i=> i.Adress).FirstOrDefault(i => i.Id == id);
             if (Customer != null)
             {
                 return new ResponseObject<Customer>()
@@ -156,7 +157,7 @@ namespace ETicaretProje.Business.Concrete
         {
             try
             {
-                var customer =_dataContext.Customers.FirstOrDefault(i=> i.Email== model.Email && i.Password == model.Password);
+                var customer =_dataContext.Customers.Include(c=> c.Adress).FirstOrDefault(i=> i.Email== model.Email && i.Password == model.Password);
                 if (customer != null)
                 {
                     return new ResponseObject<Customer>()
