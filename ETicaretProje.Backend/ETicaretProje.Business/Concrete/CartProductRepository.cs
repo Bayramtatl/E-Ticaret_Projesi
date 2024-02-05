@@ -29,7 +29,7 @@ namespace ETicaretProje.Business.Concrete
                     await _dataContext.SaveChangesAsync();
                     return new ResponseObject<CartProduct>()
                     {
-                        Message = "İşlem Başarılı",
+                        Message = "Ürün Eklendi",
                         ResultObject = model,
                         Success = true
                     };
@@ -42,7 +42,7 @@ namespace ETicaretProje.Business.Concrete
                 {
                     return new ResponseObject<CartProduct>()
                     {
-                        Message = "İşlem Başarılı",
+                        Message = "Ürün eklendi",
                         ResultObject = model,
                         Success = true
                     };

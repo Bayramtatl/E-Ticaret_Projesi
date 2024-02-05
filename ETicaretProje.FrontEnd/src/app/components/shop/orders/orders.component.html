@@ -17,7 +17,7 @@
               <ng-container *ngFor="let order of orders">
                 <tr style="border: 1px solid #dee2e6;">
                   <td style="border: 1px solid #dee2e6; padding: 10px; text-align: center;">
-                    {{ order.createdDate | date : "yyyy-MM-dd HH:mm:ss" }}
+                    {{ order.createdDate | date : "yyyy-MM-dd HH:mm:ss": '+0300' }}
                   </td>
                   <td style="border: 1px solid #dee2e6; padding: 10px; text-align: center;">
                     <ul style="padding: 0; list-style: none; margin: 0;">
