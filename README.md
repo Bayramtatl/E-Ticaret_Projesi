@@ -12,7 +12,7 @@ update-database
 ```
 Yukarıdaki kodlar npm konsoluna girilerek veritabanı code first yöntemi aracılığıyla güncellenmiş olur.
 
-##Frontend'in kurulumu
+## Frontend'in kurulumu
 
 Projede yüklü olan paketlerin güncellenebilmesi için ve projenin açılması için sırasıyla
 ```sh
